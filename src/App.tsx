@@ -5,6 +5,7 @@ function App() {
   const [id, setId] = useState("");
   const [idExists, setIdExists] = useState(false);
   const [name, setName] = useState("");
+  const [iconImageUrl, setIconImageUrl] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
@@ -14,6 +15,7 @@ function App() {
       id: id,
       name: name,
       password: password,
+      iconImageUrl: iconImageUrl,
     };
     const res = await fetch("/api/signUp", {
       method: "post",
@@ -109,6 +111,12 @@ function App() {
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
+          />
+          <p>iconImageUrl</p>
+          <input
+            type="text"
+            value={iconImageUrl}
+            onChange={(event) => setIconImageUrl(event.target.value)}
           />
           <p>password</p>
           <input
