@@ -17,7 +17,7 @@ function App() {
       password: password,
       iconImageUrl: iconImageUrl,
     };
-    const res = await fetch("/api/signUp", {
+    const res = await fetch("/api/auth/signUp", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function App() {
   const changeId = async (event: React.ChangeEvent<HTMLInputElement>) => {
     setId(event.target.value);
     const data = { id: event.target.value };
-    const res = await fetch("/api/idIsExists", {
+    const res = await fetch("/api/auth/idIsExists", {
       mode: "cors",
       credentials: "include",
       method: "post",
@@ -58,7 +58,7 @@ function App() {
       id: id,
       password: password,
     };
-    const res = await fetch("/api/signIn", {
+    const res = await fetch("/api/auth/signIn", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function App() {
     if (step == 3) {
       endpoint = "checkOtp";
     }
-    const res = await fetch(`/api/${endpoint}`, {
+    const res = await fetch(`/api/auth/${endpoint}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
